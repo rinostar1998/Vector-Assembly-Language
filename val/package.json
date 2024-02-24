@@ -1,0 +1,25 @@
+{
+  "name": "val",
+  "displayName": "Vector Assembly Language",
+  "description": "Vector Assembly Programming Language For 3D Game Engines",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "val",
+      "aliases": ["Vector Assembly Programming Language", "val"],
+      "extensions": [".val"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "val",
+      "scopeName": "source.val",
+      "path": "./syntaxes/val.tmLanguage.json"
+    }]
+  }
+}

@@ -1,0 +1,242 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Vector Assembly Programming Language",
+	"patterns": [
+		{
+			"include": "#comments-inline"
+		},
+		{
+			"include": "#branches"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#built-in functions"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#registers"
+		},
+		{
+			"include": "#object reference"
+		},
+		{
+			"include": "#transform reference"
+		},
+		{
+			"include": "#position reference"
+		},
+		{
+			"include": "#rotation reference"
+		},
+		{
+			"include": "#scale reference"
+		},
+		{
+			"include": "#expression"
+		}
+	],
+	"repository": {
+		"built-in functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.member.val",
+					"match": "cast|port|vport|print|load|delete"
+				}
+			]
+		},
+		"object reference": {
+			"patterns": [
+				{
+					"name": "entity.name.class.val",
+					"match": "thing"
+				},
+				{
+					"name": "entity.name.class.val",
+					"match": "obj"
+				},
+				{
+					"name": "entity.name.class.val",
+					"match": "level"
+				}
+			]
+		},
+		"vector component reference": {
+			"patterns": [
+				{
+					"name": "entity.name.class.val",
+					"match": "vecx"
+				},
+				{
+					"name": "entity.name.class.val",
+					"match": "vecy"
+				},
+				{
+					"name": "entity.name.class.val",
+					"match": "vecz"
+				}
+			]
+		},
+		"transform reference": {
+			"patterns": [
+				{
+					"name": "keyword.operator.new.val",
+					"match": "transform"
+				}
+			]
+		},
+		"position reference": {
+			"patterns": [
+				{
+					"name": "support.type.property-name.val",
+					"match": "position"
+				}
+			]
+		},
+		"rotation reference": {
+			"patterns": [
+				{
+					"name": "support.type.property-name.val",
+					"match": "rotation"
+				}
+			]
+		},
+		"expression": {
+			"patterns": [
+				{ "include": "#numbers" },
+				{ "include": "#strings" }
+			]
+		},
+		"scale reference": {
+			"patterns": [
+				{
+					"name": "support.type.property-name.val",
+					"match": "scale"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.decimal.val",
+					"match": "0|1|2|3|4|5|6|7|8|9"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "#\\",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.val"
+						}
+					},
+					"end": "\n",
+					"name": "comment.line.number-sign.val"
+				},
+				{
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.val"
+						}
+					},
+					"match": "/\\**\\/",
+					"name": "comment.block.empty.val"
+				},
+				{
+					"include": "#comments-inline"
+				}
+			]
+		},
+		"comments-inline": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.val"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.val"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.control.val",
+					"match": "mov|add|sub|mul|div|mod|push|pop|stare|call|and|or|not|xor|nand|@"
+				},
+				{
+					"include": "#vector operators"
+				}
+			]
+		},
+		"vector operators": {
+			"patterns": [
+				{
+					"name": "keyword.control.val",
+					"match": "vmov|vadd|vsub|vmul|vdiv|vmod|vcross|vdot|vrot|vsplit|vmerge"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.member.val",
+					"match": "fn"
+				},
+				{
+					"name": "keyword.control.return.val",
+					"match": "End"
+				},
+				{
+					"name": "entity.name.type.val",
+					"match": "Script"
+				}
+			]
+
+		},
+		"registers": {
+			"patterns": [
+				{
+					"name": "variable.other.local.val",
+					"match": "lr"
+				},
+				{
+					"name": "variable.other.local.val",
+					"match": "lvr"
+				}
+			]
+
+		},
+		"branches": {
+			"patterns": [
+				{
+					"name": "keyword.control.default.val",
+					"match": "bgt|blt|be|bge|ble|bne|jmp|cmp"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.val",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.val",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.val"
+}
