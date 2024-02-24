@@ -12,3 +12,5 @@ Please read the documentation in the instructions page.
 Once you have downloaded it, find the Visual Studio Code file
 where you downloaded it and find the resources file. Then find
 Extensions and paste the val folder in with all the other extensions.
+
+P.S: don't read too much into the licence, he's a crackhead.
