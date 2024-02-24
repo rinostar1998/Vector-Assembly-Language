@@ -8,3 +8,7 @@ GOAT Source 3D Engine, which u can find here:
 
 https://scratch.mit.edu/projects/957093952
 Please read the documentation in the instructions page.
+
+Once you have downloaded it, find the Visual Studio Code file
+where you downloaded it and find the resources file. Then find
+Extensions and paste the val folder in with all the other extensions.
